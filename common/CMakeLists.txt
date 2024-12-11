@@ -1,0 +1,17 @@
+cmake_minimum_required(VERSION 3.10)
+
+project(COMMON)
+
+# 设置默认构建类型为 Debug
+set(CMAKE_BUILD_TYPE Debug)
+
+# 生成 compile_commands.json 文件
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+# 添加源文件
+aux_source_directory(src SRC_SUB)
+aux_source_directory(. SRC_CUR)
+
+add_executable(test.out ${SRC_SUB} ${SRC_CUR})
+
+target_include_directories(test.out PUBLIC ./include)
