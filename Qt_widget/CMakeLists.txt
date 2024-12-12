@@ -38,12 +38,6 @@ set(CMAKE_AUTORCC ON) # auto call rcc complier to process qt resource files.
 
 ## ------------------------------------------ basic-settings ----------------------------------------------
 
-
-# common link directories
-link_directories(
-    # "/usr/local/lib"
-)
-
 # # source files
 # set(PROJECT_SOURCES
 #     ./main.cpp
@@ -89,10 +83,11 @@ target_include_directories(test.out PRIVATE
 ## ------------------------------------------ pkgs-settings ----------------------------------------------
 
 # 查找 Qt 包
-find_package(Qt6 REQUIRED COMPONENTS Widgets)
+find_package(Qt6 REQUIRED COMPONENTS Core Widgets REQUIRED)
 
-# 链接 Qt6::Widgets
+# 链接 Qt6::Widgets Qt6::Core
 target_link_libraries(test.out PRIVATE
+    Qt6::Core
     Qt6::Widgets
 )
 

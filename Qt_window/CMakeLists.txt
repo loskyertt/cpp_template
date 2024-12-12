@@ -6,7 +6,7 @@ set(CMAKE_C_COMPILER clang)
 set(CMAKE_CXX_COMPILER clang++)
 
 # 项目信息
-project(Qt_Window)
+project(Qt_Widget)
 
 
 ## ------------------------------------------ basic-settings ----------------------------------------------
@@ -37,12 +37,6 @@ set(CMAKE_AUTOMOC ON) # auto call moc compiler to process qt signal-slot source 
 set(CMAKE_AUTORCC ON) # auto call rcc complier to process qt resource files.
 
 ## ------------------------------------------ basic-settings ----------------------------------------------
-
-
-# common link directories
-link_directories(
-    # "/usr/local/lib"
-)
 
 # # source files
 # set(PROJECT_SOURCES
@@ -89,10 +83,11 @@ target_include_directories(test.out PRIVATE
 ## ------------------------------------------ pkgs-settings ----------------------------------------------
 
 # 查找 Qt 包
-find_package(Qt6 REQUIRED COMPONENTS Widgets)
+find_package(Qt6 REQUIRED COMPONENTS Core Widgets REQUIRED)
 
-# 链接 Qt6::Widgets
+# 链接 Qt6::Widgets Qt6::Core
 target_link_libraries(test.out PRIVATE
+    Qt6::Core
     Qt6::Widgets
 )
 
