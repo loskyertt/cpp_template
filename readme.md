@@ -68,15 +68,15 @@ newproj() {
 
 使用示例：
 ```bash
-newproj --common test 
+newproj --common test
 ```
-这回创建`test`项目，使用的`common`模板。
+这会创建`test`项目，使用的`common`模板。
 
 ---
 
 # 3.常用变量
 
-```bash
+```cmake
 # Note：cmake中不区分大小写。
 
 # 工程顶层目录
