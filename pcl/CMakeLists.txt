@@ -17,10 +17,16 @@ add_executable(test.out
     ${SRC_CUR}
 )
 
-target_include_directories(test.out PRIVATE include)
+target_include_directories(test.out PRIVATE
+    include
+)
 
 # pcl 库配置
 find_package(PCL 1.14 REQUIRED)
 
-target_include_directories(test.out PRIVATE ${PCL_INCLUDE_DIRS})
-target_link_libraries (test.out ${PCL_LIBRARIES})
+target_include_directories(test.out PRIVATE
+    ${PCL_INCLUDE_DIRS}
+)
+target_link_libraries (test.out
+    ${PCL_LIBRARIES}
+)

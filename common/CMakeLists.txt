@@ -15,6 +15,11 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 aux_source_directory(src SRC_SUB)
 aux_source_directory(. SRC_CUR)
 
-add_executable(test.out ${SRC_SUB} ${SRC_CUR})
+add_executable(test.out
+    ${SRC_SUB}
+    ${SRC_CUR}
+)
 
-target_include_directories(test.out PUBLIC ./include)
+target_include_directories(test.out PUBLIC
+    include
+)
