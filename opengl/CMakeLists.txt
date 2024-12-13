@@ -5,9 +5,17 @@ cmake_minimum_required(VERSION 3.10)
 
 project(OPENGL_PROJECT)
 
+
+## ------------------------------------------ basic-settings ----------------------------------------------
 set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+# C++17 标准
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+
+## ------------------------------------------ files-settings ----------------------------------------------
 # 查找源文件
 aux_source_directory(src SRC_SUB)
 aux_source_directory(. SRC_CUR)
@@ -22,6 +30,8 @@ target_include_directories(test.out PRIVATE
     include
 )
 
+
+## ------------------------------------------ pkgs-settings ----------------------------------------------
 # 配置 opengl
 set(OpenGL_GL_PREFERENCE "GLVND")
 

@@ -10,7 +10,6 @@ project(Qt_Widget)
 
 
 ## ------------------------------------------ basic-settings ----------------------------------------------
-
 # 设置默认构建类型为 Debug
 set(CMAKE_BUILD_TYPE Debug)
 
@@ -86,7 +85,6 @@ target_include_directories(test.out PRIVATE
 
 
 ## ------------------------------------------ pkgs-settings ----------------------------------------------
-
 # 查找 Qt 包
 find_package(Qt6 REQUIRED COMPONENTS Core Widgets REQUIRED)
 
@@ -102,9 +100,6 @@ target_link_libraries(test.out PRIVATE
 #     ${Protobuf_LIBRARIES}
 # )
 
-## ------------------------------------------ pkgs-settings ----------------------------------------------
-
 
 ## ------------------------------------------ command ----------------------------------------------
-
 # cmake -DCMAKE_C_COMPILER:FILEPATH=clang -DCMAKE_CXX_COMPILER:FILEPATH=clang++ --no-warn-unused-cli -G Ninja -B build
