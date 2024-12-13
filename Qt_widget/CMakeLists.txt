@@ -36,8 +36,9 @@ set(CMAKE_AUTOUIC ON) # auto call uic compiler to process qt ui files.
 set(CMAKE_AUTOMOC ON) # auto call moc compiler to process qt signal-slot source files.
 set(CMAKE_AUTORCC ON) # auto call rcc complier to process qt resource files.
 
-## ------------------------------------------ basic-settings ----------------------------------------------
 
+## ------------------------------------------ files-settings ----------------------------------------------
+# 中大型项目建议显示列出源文件、头文件
 # # source files
 # set(PROJECT_SOURCES
 #     ./main.cpp
@@ -46,12 +47,18 @@ set(CMAKE_AUTORCC ON) # auto call rcc complier to process qt resource files.
 
 # # header files
 # set(PROJECT_HEADERS
-#     include/MyWidget.h
+#     include/MyWidget.hpp
 # )
 
 # 把 GLOB 改为 GLOB_RECURSE 可以实现递归查找
-file(GLOB PROJECT_SOURCES "src/*.cpp")
-file(GLOB PROJECT_HEADERS "include/*.hpp")
+file(GLOB PROJECT_SOURCES
+    "src/*.cpp"
+    "./main.cpp"
+)
+
+file(GLOB PROJECT_HEADERS
+    "include/*.hpp"
+)
 
 # # qt ui files
 # set(PROJECT_QUIS
@@ -65,7 +72,6 @@ file(GLOB PROJECT_HEADERS "include/*.hpp")
 
 # build target
 add_executable(test.out
-    main.cpp
     ${PROJECT_SOURCES}
     ${PROJECT_HEADERS}
     # ${PROJECT_QUIS}
@@ -73,7 +79,6 @@ add_executable(test.out
 )
 
 # 包含头文件路径
-# include_directories(include)
 target_include_directories(test.out PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/include
     ${CMAKE_CURRENT_BINARY_DIR} # 重要：添加自动生成文件的目录

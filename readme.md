@@ -85,7 +85,7 @@ ${CMAKE_SOURCE_DIR} ${PROJECT_SOURCE_DIR}
 # 当前处理的 CMakeLists.txt 所在路径
 ${CMAKE_CURRENT_SOURCE_DIR}
 
-# 返回Cmakelists.txt开头通过 PROJECT 指令定义的项目名称
+# 返回 Cmakelists.txt 开头通过 PROJECT 指令定义的项目名称
 ${PROJECT_NAME}
 
 # 分别用来重新定义最终结果（可执行文件、动静态库文件）的存放目录
