@@ -20,13 +20,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 aux_source_directory(src SRC_SUB)
 aux_source_directory(. SRC_CUR)
 
-add_executable(test.out
+add_executable(test
     ${SRC_SUB}
     ${SRC_CUR}
 )
 
 # 包含头文件
-target_include_directories(test.out PRIVATE
+target_include_directories(test PRIVATE
     include
 )
 
@@ -39,21 +39,21 @@ set(OpenGL_GL_PREFERENCE "GLVND")
 find_package(OpenGL REQUIRED)
 find_package(GLUT REQUIRED)  # FreeGLUT 包含在这里
 
-target_include_directories(test.out PRIVATE
+target_include_directories(test PRIVATE
     ${OPENGL_INCLUDE_DIRS}
     ${GLUT_INCLUDE_DIRS}
 )
-target_link_libraries(test.out
+target_link_libraries(test
     ${OPENGL_LIBRARIES}
     ${GLUT_LIBRARIES}
 )
 
 # # 查找 GLFW 库
 # find_package(glfw3 3.3 REQUIRED)
-# target_link_libraries(test.out glfw)
+# target_link_libraries(test glfw)
 # # 查找 GLEW 库
 # find_package(GLEW REQUIRED)
-# target_link_libraries(test.out GLEW::GLEW)
+# target_link_libraries(test GLEW::GLEW)
 
 # 输出信息以确保库和头文件路径正确
 message(STATUS "OpenGL include dirs: ${OPENGL_INCLUDE_DIRS}")

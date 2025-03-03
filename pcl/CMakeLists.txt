@@ -19,12 +19,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 aux_source_directory(src SRC_SUB)
 aux_source_directory(. SRC_CUR)
 
-add_executable(test.out
+add_executable(test
     ${SRC_SUB}
     ${SRC_CUR}
 )
 
-target_include_directories(test.out PRIVATE
+target_include_directories(test PRIVATE
     include
 )
 
@@ -33,9 +33,9 @@ target_include_directories(test.out PRIVATE
 # pcl 库配置
 find_package(PCL 1.14 REQUIRED)
 
-target_include_directories(test.out PRIVATE
+target_include_directories(test PRIVATE
     ${PCL_INCLUDE_DIRS}
 )
-target_link_libraries (test.out
+target_link_libraries (test
     ${PCL_LIBRARIES}
 )

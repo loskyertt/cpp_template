@@ -70,7 +70,7 @@ file(GLOB PROJECT_HEADERS
 # )
 
 # build target
-add_executable(test.out
+add_executable(test
     ${PROJECT_SOURCES}
     ${PROJECT_HEADERS}
     # ${PROJECT_QUIS}
@@ -78,7 +78,7 @@ add_executable(test.out
 )
 
 # 包含头文件路径
-target_include_directories(test.out PRIVATE
+target_include_directories(test PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/include
     ${CMAKE_CURRENT_BINARY_DIR} # 重要：添加自动生成文件的目录
 )
@@ -89,13 +89,13 @@ target_include_directories(test.out PRIVATE
 find_package(Qt6 REQUIRED COMPONENTS Core Widgets REQUIRED)
 
 # 链接 Qt6::Widgets Qt6::Core
-target_link_libraries(test.out PRIVATE
+target_link_libraries(test PRIVATE
     Qt6::Core
     Qt6::Widgets
 )
 
 # link other required libraries
-# target_link_libraries(test.out PRIVATE
+# target_link_libraries(test PRIVATE
 #     ${Boost_LIBRARIES}
 #     ${Protobuf_LIBRARIES}
 # )

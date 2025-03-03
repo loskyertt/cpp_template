@@ -23,11 +23,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 aux_source_directory(src SRC_SUB)
 aux_source_directory(. SRC_CUR)
 
-add_executable(test.out
+add_executable(test
     ${SRC_SUB}
     ${SRC_CUR}
 )
 
-target_include_directories(test.out PUBLIC
+target_include_directories(test PUBLIC
     include
 )
