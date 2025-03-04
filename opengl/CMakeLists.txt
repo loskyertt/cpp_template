@@ -17,17 +17,22 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 ## ------------------------------------------ files-settings ----------------------------------------------
 # 查找源文件
-aux_source_directory(src SRC_SUB)
-aux_source_directory(. SRC_CUR)
+file(GLOB PROJECT_SRC
+    "src/*.cpp",
+    "main.cpp"
+)
+
+set(PROJECT_INCLUDE
+    "include"
+)
 
 add_executable(test
-    ${SRC_SUB}
-    ${SRC_CUR}
+    ${PROJECT_SRC}
 )
 
 # 包含头文件
 target_include_directories(test PRIVATE
-    include
+    ${PROJECT_INCLUDE}
 )
 
 
@@ -37,7 +42,7 @@ set(OpenGL_GL_PREFERENCE "GLVND")
 
 # 添加 OpenGL 和 FreeGLUT 的查找和链接
 find_package(OpenGL REQUIRED)
-find_package(GLUT REQUIRED)  # FreeGLUT 包含在这里
+find_package(GLUT REQUIRED)
 
 target_include_directories(test PRIVATE
     ${OPENGL_INCLUDE_DIRS}

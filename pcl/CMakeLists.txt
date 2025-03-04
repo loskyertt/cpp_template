@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.10 FATAL_ERROR)
 # set(CMAKE_C_COMPILER clang)
 # set(CMAKE_CXX_COMPILER clang++)
 
-project(cloud_viewer)
+project(PCL_PROJECT)
 
 
 ## ------------------------------------------ basic-settings ----------------------------------------------
@@ -16,16 +16,23 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 
 ## ------------------------------------------ files-settings ----------------------------------------------
-aux_source_directory(src SRC_SUB)
-aux_source_directory(. SRC_CUR)
-
-add_executable(test
-    ${SRC_SUB}
-    ${SRC_CUR}
+# 查找源文件
+file(GLOB PROJECT_SRC
+    "src/*.cpp",
+    "main.cpp"
 )
 
+set(PROJECT_INCLUDE
+    "include"
+)
+
+add_executable(test
+    ${PROJECT_SRC}
+)
+
+# 包含头文件
 target_include_directories(test PRIVATE
-    include
+    ${PROJECT_INCLUDE}
 )
 
 
@@ -36,6 +43,6 @@ find_package(PCL 1.14 REQUIRED)
 target_include_directories(test PRIVATE
     ${PCL_INCLUDE_DIRS}
 )
-target_link_libraries (test
+target_link_libraries(test
     ${PCL_LIBRARIES}
 )
